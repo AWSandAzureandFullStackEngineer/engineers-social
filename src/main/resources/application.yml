@@ -5,7 +5,7 @@ spring:
     password: 871706Ej$mal2335
   jpa:
     hibernate:
-      ddl-auto: create  # Set your desired Hibernate DDL behavior
+      ddl-auto: update  # Set your desired Hibernate DDL behavior
     show-sql: true  # Set to true for debugging, but false in production
     properties:
       hibernate:
