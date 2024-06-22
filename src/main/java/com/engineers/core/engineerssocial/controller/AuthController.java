@@ -3,13 +3,17 @@ package com.engineers.core.engineerssocial.controller;
 import com.engineers.core.engineerssocial.config.JwtProvider;
 import com.engineers.core.engineerssocial.entity.User;
 import com.engineers.core.engineerssocial.repository.UserRepository;
+import com.engineers.core.engineerssocial.request.LoginRequest;
 import com.engineers.core.engineerssocial.response.AuthResponse;
 import com.engineers.core.engineerssocial.service.NewUserDetailImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<User> createUserHandler(@RequestBody User user) throws Exception {
+    public ResponseEntity<AuthResponse> registerUser(@RequestBody User user) throws Exception {
         User doesUserExist = userRepository.findByUsername(user.getUsername());
 
         if (doesUserExist != null) {
@@ -48,9 +52,8 @@ public class AuthController {
         createNewUser.setEmail(user.getEmail());
         createNewUser.setTypeOfEngineer(user.getTypeOfEngineer());
 
-        User saveUser = userRepository.save(createNewUser);
-
         Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = JwtProvider.generationToken(authentication);
 
@@ -58,6 +61,34 @@ public class AuthController {
         response.setMessage("Registration successful");
         response.setJwt(jwt);
 
-        return new ResponseEntity<>(saveUser, HttpStatus.CREATED);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest loginRequest) {
+        String username = loginRequest.getUsername();
+        String password = loginRequest.getPassword();
+
+        Authentication authentication = authenticate(username, password);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+        String jwt = JwtProvider.generationToken(authentication);
+
+        AuthResponse response = new AuthResponse();
+        response.setMessage("Login successful");
+        response.setJwt(jwt);
+
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    private Authentication authenticate(String username, String password) {
+        UserDetails userDetails = newUserDetailImplementation.loadUserByUsername(username);
+        if (userDetails == null) {
+            throw new BadCredentialsException("invalid username");
+        }
+        if(!passwordEncoder.matches(password, userDetails.getPassword())) {
+            throw new BadCredentialsException("Invalid password");
+        }
+        return new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
     }
 }

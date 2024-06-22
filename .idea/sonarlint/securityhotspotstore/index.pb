@@ -30,3 +30,5 @@ x
 Hsrc/main/java/com/engineers/core/engineerssocial/config/JwtProvider.java,1/b/1b7fe4cc21449270c190714fcf26973890e93d6c
 {
 Ksrc/main/java/com/engineers/core/engineerssocial/response/AuthResponse.java,3/0/309e44251797b85652967ff5d0273c53aa32df60
+z
+Jsrc/main/java/com/engineers/core/engineerssocial/request/LoginRequest.java,2/4/24c21ff0b8b84b80caa89f87e8d91a38ed0df9e6
