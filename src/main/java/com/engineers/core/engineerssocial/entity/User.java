@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import java.util.*;
 
 @Data
 @Entity
@@ -19,6 +19,13 @@ public class User {
     private String firstName;
     private String lastName;
     private String typeOfEngineer;
+
+    @ElementCollection
+    private List<Integer> followers = new ArrayList<>();
+
+    @ElementCollection
+    private List<Integer> following = new ArrayList<>();
+
     @Column(unique = true)
     private String username;
     @Column(unique = true)
