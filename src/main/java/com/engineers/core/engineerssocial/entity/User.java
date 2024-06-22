@@ -14,11 +14,15 @@ import java.util.*;
 @Table(name = "users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String firstName;
     private String lastName;
     private String typeOfEngineer;
+
+    @OneToMany(targetEntity = Post.class)
+    @JoinColumn(name = "post_id", referencedColumnName = "id")
+    private List<Post> savedPost = new ArrayList<>();
 
     @ElementCollection
     private List<Integer> followers = new ArrayList<>();
