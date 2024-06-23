@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${AZURE_POSTGRESQL_URL}
-    username: ${AZURE_POSTGRESQL_USERNAME}
-    password: ${AZURE_POSTGRESQL_PASSWORD}
+    url: jdbc:postgresql://engineerserver.postgres.database.azure.com:5432/azure_sys?ssl=true&sslmode=require
+    username: engineer25
+    password: 871706Ej$mal2335
   jpa:
     hibernate:
       ddl-auto: update  # Set your desired Hibernate DDL behavior
@@ -13,6 +13,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     database: postgresql
-
-server:
-  port: 0
