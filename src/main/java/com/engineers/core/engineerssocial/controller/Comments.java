@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/1.0/comments")
+@RequestMapping("/api/1.0/comments")
 public class Comments {
     @GetMapping("/test")
     public String testing(@RequestBody String greeting) {
