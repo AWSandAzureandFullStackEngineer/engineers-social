@@ -13,6 +13,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     database: postgresql
-
-server:
-  port: 0
