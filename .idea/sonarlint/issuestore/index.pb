@@ -48,5 +48,11 @@ z
 Jsrc/main/java/com/engineers/core/engineerssocial/response/ApiResponse.java,8/c/8c2789573a2ca0b025596a52fbf5ef2d4394209c
 …
 Usrc/test/java/com/engineers/core/engineerssocial/EngineersSocialApplicationTests.java,c/d/cd7decaa8b2a2a1ed7cccfc72cc1358d8bbeaab1
-y
-Isrc/main/java/com/engineers/core/engineerssocial/controller/Comments.java,4/8/480e39ef973c2008e164698c0ce9d0d85f60b032
+‚
+Rsrc/main/java/com/engineers/core/engineerssocial/controller/CommentController.java,2/a/2ab075816084a30e5ea15d9157a0bea9a5e7874c
+‚
+Rsrc/main/java/com/engineers/core/engineerssocial/repository/CommentRepository.java,9/d/9d9e4d90f0bd96a39ac2095ae8170e491995f590
+|
+Lsrc/main/java/com/engineers/core/engineerssocial/service/CommentService.java,8/4/84e6d2f4030a2f42d03871d107d3c0ee6ab26546
+€
+Psrc/main/java/com/engineers/core/engineerssocial/service/CommentServiceImpl.java,9/8/98166b92025ccf577d2df897aef2e73c34c41bd1

@@ -32,5 +32,6 @@ public class Post {
     private LocalDateTime createdAt;
     private String content;
 
-
+    @OneToMany(targetEntity = Comment.class, mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
 }
