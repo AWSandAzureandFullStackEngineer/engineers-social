@@ -2,8 +2,6 @@
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-a
-1.github/workflows/main_engineersspringbootapp.yml,b/6/b69c12791b1a6adb168d87feef25dd4b5f414340
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 €
@@ -50,7 +48,5 @@ z
 Jsrc/main/java/com/engineers/core/engineerssocial/response/ApiResponse.java,8/c/8c2789573a2ca0b025596a52fbf5ef2d4394209c
 …
 Usrc/test/java/com/engineers/core/engineerssocial/EngineersSocialApplicationTests.java,c/d/cd7decaa8b2a2a1ed7cccfc72cc1358d8bbeaab1
-„
-T.github/workflows/backend-AutoDeployTrigger-2427871b-1661-46f8-b203-3d6dc65bd6c4.yml,d/6/d68a1cb8c1e22d64ddb7bcbe5d2d5280bc4e061a
 y
 Isrc/main/java/com/engineers/core/engineerssocial/controller/Comments.java,4/8/480e39ef973c2008e164698c0ce9d0d85f60b032

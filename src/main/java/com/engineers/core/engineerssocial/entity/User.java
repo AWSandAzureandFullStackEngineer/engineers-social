@@ -20,7 +20,7 @@ public class User {
     private String lastName;
     private String typeOfEngineer;
 
-    @OneToMany(targetEntity = Post.class)
+    @ManyToMany(targetEntity = Post.class)
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private List<Post> savedPost = new ArrayList<>();
 

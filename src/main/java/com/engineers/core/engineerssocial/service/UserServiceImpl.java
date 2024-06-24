@@ -1,5 +1,6 @@
 package com.engineers.core.engineerssocial.service;
 
+import com.engineers.core.engineerssocial.config.JwtProvider;
 import com.engineers.core.engineerssocial.entity.User;
 import com.engineers.core.engineerssocial.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +21,6 @@ public class UserServiceImpl implements UserService{
         this.userRepository = userRepository;
     }
 
-    @Override
-    public User registerUser(User user) {
-        User newUser = new User();
-        newUser.setFirstName(user.getFirstName());
-        newUser.setLastName(user.getLastName());
-        newUser.setUsername(user.getUsername());
-        newUser.setEmail(user.getEmail());
-        newUser.setPassword(user.getPassword());
-        newUser.setTypeOfEngineer(user.getTypeOfEngineer());
-        return userRepository.save(newUser);
-    }
 
     @Override
     public User findByUserId(Integer userId) throws Exception{
@@ -49,14 +39,17 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User followUser(Integer userId1, Integer userId2) throws Exception {
-        User user1 = findByUserId(userId1);
-        User user2 = findByUserId(userId2);
-        user2.getFollowers().add(user1.getId());
+    public User followUser(Integer requestUserId, Integer userId2) throws Exception {
+        User requestUser = findByUserId(requestUserId);
 
-        userRepository.save(user1);
+        User user2 = findByUserId(userId2);
+
+        user2.getFollowers().add(requestUser.getId());
+        requestUser.getFollowing().add(user2.getId());
+
+        userRepository.save(requestUser);
         userRepository.save(user2);
-        return user1;
+        return requestUser;
     }
 
     @Override
@@ -91,6 +84,12 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> searchUser(String query) {
         return userRepository.searchUser(query);
+    }
+
+    @Override
+    public User findUserByJwt(String jwt) {
+        String username = JwtProvider.getUsernameFromToken(jwt);
+        return userRepository.findByUsername(username);
     }
 
 

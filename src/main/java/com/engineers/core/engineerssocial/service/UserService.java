@@ -5,7 +5,6 @@ import com.engineers.core.engineerssocial.entity.User;
 import java.util.List;
 
 public interface UserService {
-    User registerUser(User user);
 
     User findByUserId(Integer userId) throws Exception;
 
@@ -16,4 +15,6 @@ public interface UserService {
     User updateUser(User user, Integer userId) throws Exception;
 
     List<User> searchUser(String query);
+
+    public User findUserByJwt(String jwt);
 }

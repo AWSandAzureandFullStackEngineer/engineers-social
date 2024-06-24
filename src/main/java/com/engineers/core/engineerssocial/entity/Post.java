@@ -26,7 +26,6 @@ public class Post {
     private List<User> liked = new ArrayList<>();
 
 
-
     @ManyToOne(optional = false, targetEntity = User.class)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
