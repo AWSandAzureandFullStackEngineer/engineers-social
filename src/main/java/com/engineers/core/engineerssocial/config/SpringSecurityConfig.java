@@ -37,7 +37,7 @@ public class SpringSecurityConfig {
         return request -> {
             CorsConfiguration corsConfiguration = new CorsConfiguration();
             corsConfiguration.setAllowedOrigins(Arrays.asList(
-                    "http://localhost:3000",
+                    "https://frontend.victoriousmushroom-5e574b43.centralus.azurecontainerapps.io",
                     "http://localhost:5173",
                     "http://localhost:4200"
             ));

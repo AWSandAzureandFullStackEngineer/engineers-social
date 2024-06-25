@@ -1,9 +1,2 @@
 
-b
-java:S1854#"@Remove this useless assignment to local variable "savedComment".(ê°‹ˆúÿÿÿÿ8Ê¢Ú„2
-Z
-java:S1854"8Remove this useless assignment to local variable "post".(´“Ç•ûÿÿÿÿ8Ê¢Ú„2
-K
-java:S1481")Remove this unused "post" local variable.(´“Ç•ûÿÿÿÿ8Ì¢Ú„2
-S
-java:S1481#"1Remove this unused "savedComment" local variable.(ê°‹ˆúÿÿÿÿ8Ì¢Ú„2
+g	java:S1122"FDefine and throw a dedicated exception instead of using a generic one.(¡èÖÚûÿÿÿÿ8ÑãÜ„2

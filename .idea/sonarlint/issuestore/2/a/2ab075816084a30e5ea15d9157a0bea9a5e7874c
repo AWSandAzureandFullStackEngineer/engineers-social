@@ -1,3 +1,4 @@
 
-g
-java:S1226"EIntroduce a new variable instead of reusing the parameter "greeting".(şÙ²ôşÿÿÿÿ8âÛö²„2
+g	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(œ›ëûÿÿÿÿ8Êè½İ„2
+
+java:S1130#"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(œ›ëûÿÿÿÿ8Ñè½İ„2
