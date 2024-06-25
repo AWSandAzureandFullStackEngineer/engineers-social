@@ -19,7 +19,8 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {"https://backendapi.victoriousmushroom-5e574b43.centralus.azurecontainerapps.io", "http//:localhost:5173"})
+@CrossOrigin(origins = {"https://backendapi.victoriousmushroom-5e574b43.centralus.azurecontainerapps.io",
+        "http//:localhost:5173"})
 public class AuthController {
     private final UserRepository userRepository;
 
@@ -49,6 +50,8 @@ public class AuthController {
         createNewUser.setUsername(user.getUsername());
         createNewUser.setEmail(user.getEmail());
         createNewUser.setTypeOfEngineer(user.getTypeOfEngineer());
+
+        userRepository.save(createNewUser);
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);

@@ -1,5 +1,5 @@
 
-b	java:S112-"FDefine and throw a dedicated exception instead of using a generic one.(¤¯ø˜8¤“‹„2
-b	java:S1127"FDefine and throw a dedicated exception instead of using a generic one.(úÂ©8¥“‹„2
+b	java:S112."FDefine and throw a dedicated exception instead of using a generic one.(¤¯ø˜8¤“‹„2
+b	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(úÂ©8¥“‹„2
 ^
-java:S4973,"<Strings and Boxed types should be compared using "equals()".(¨ÜÇìúÿÿÿÿ8¦“‹„2
+java:S4973-"<Strings and Boxed types should be compared using "equals()".(¨ÜÇìúÿÿÿÿ8¦“‹„2
