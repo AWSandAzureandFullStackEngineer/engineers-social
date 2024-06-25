@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = {"https://backendapi.victoriousmushroom-5e574b43.centralus.azurecontainerapps.io",
+@CrossOrigin(origins = {"https://frontend.victoriousmushroom-5e574b43.centralus.azurecontainerapps.io",
         "http//:localhost:5173"})
 public class AuthController {
     private final UserRepository userRepository;
